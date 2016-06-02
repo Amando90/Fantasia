@@ -1,0 +1,58 @@
+html {  
+  height: 100%;
+}
+
+.registration-bg {
+  padding-top: 4em;
+  height: 720px;
+  background-image: image-url('regback.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.login-bg {
+  padding-top: 4em;
+  height: 720px;
+  background-image: image-url('loginbg.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.forgot-bg {
+  padding-top: 4em;
+  height: 720px;
+  background-image: image-url('forgotbg.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.log-in{
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  border: none;
+}
+
+.panel {
+  border-radius: 8px;
+}
+
+.panel-heading{
+  h1 {
+    text-align: center;
+  }
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.alert {
+	margin-bottom: 0px;
+}

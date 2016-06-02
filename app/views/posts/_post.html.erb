@@ -1,0 +1,48 @@
+<%= stylesheet_link_tag    'index', media: 'all' %>
+
+<div class="posts-wrapper">
+  <div class="post">
+    <div class="post-head">
+      <div class="thumb-img"></div>
+      <div class="user-name">
+        <strong><%= post.user.user_name %></strong>
+      </div>
+      <div class="time-ago">
+        <small><%= time_ago_in_words post.created_at %></small>
+      </div>
+    </div>
+    <div class="image">
+      <center><%= link_to (image_tag post.image.url(:large), class:'img-responsive'), post_path(post) %></center>
+    </div>
+    <div class="post-bottom">
+      <div class="caption">
+        <div class="caption-content">
+          <div class="user-name">
+            <strong><%= post.user.user_name %></strong>
+          </div>
+          <%= post.caption %>
+        </div>
+        <div class="comments" id="comments_<%= post.id %>">
+          <% if post.comments.any? %>
+            <div class="paginator" id="#comments-paginator-<%= post.id %>">
+              <% unless post.comments.count <= 4 %>
+                <%= link_to "view all #{post.comments.count} comments", post_comments_path(post), remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"} %>
+              <% end %>
+            </div>
+            <%= render post.comments.last(4), post: post %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="comment-like-form row">
+      <div class="like-button col-sm-1">
+        <span class="glyphicon glyphicon-heart-empty"></span>
+      </div>
+      <div class="comment-form col-sm-11">
+        <%= form_for([post, post.comments.build], remote: true) do |f| %>
+          <%= f.text_field :content, placeholder: 'Add a comment...', class: "comment_content", id: "comment_content_#{post.id}" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
